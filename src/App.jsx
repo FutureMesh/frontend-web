@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter } from 'react-router';
+import AppRouter from './modules/AppRouter';
+// import AppRouter from './modules/AppRouter';
+// import { ApiContext } from './context';
+// import api from './lib/api';
+// import { useAppSelector } from './hooks/redux';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  // const token = useAppSelector((state) => state.user.accessToken);
+  // const alerts = useAppSelector((state) => state.messages.messages);
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    // <ApiContext.Provider value={{ api: api(token) }}>
+  // <ThemeProvider theme={theme}>
+    <BrowserRouter>
+      {/* <Stack sx={{ width: '30%', position: 'fixed', top: 15, right: 15, zIndex: 9999999999 }} spacing={2}>
+            {alerts.map((alert, idx) => (
+              <AlertMessage key={idx} text={alert.text} type={alert.type} id={alert.id} />
+            ))}
+          </Stack> */}
+
+      <AppRouter />
+    </BrowserRouter>
+  // </ThemeProvider>
+    // </ApiContext.Provider>
+  );
 }
 
-export default App
+export default App;
