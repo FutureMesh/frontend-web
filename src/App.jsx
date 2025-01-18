@@ -1,5 +1,7 @@
 import { BrowserRouter } from 'react-router';
 import AppRouter from './modules/AppRouter';
+import { createContext } from 'react';
+import { scaffold, staticApi as staticConnector } from './lib/api';
 // import AppRouter from './modules/AppRouter';
 // import { ApiContext } from './context';
 // import api from './lib/api';
@@ -7,22 +9,24 @@ import AppRouter from './modules/AppRouter';
 
 
 function App() {
-  // const token = useAppSelector((state) => state.user.accessToken);
-  // const alerts = useAppSelector((state) => state.messages.messages);
-  return (
-    // <ApiContext.Provider value={{ api: api(token) }}>
-  // <ThemeProvider theme={theme}>
-    <BrowserRouter>
-      {/* <Stack sx={{ width: '30%', position: 'fixed', top: 15, right: 15, zIndex: 9999999999 }} spacing={2}>
-            {alerts.map((alert, idx) => (
-              <AlertMessage key={idx} text={alert.text} type={alert.type} id={alert.id} />
-            ))}
-          </Stack> */}
+  const API_URL = import.meta.env.VITE_API_URL;
+  const endpoints = {
+    ai: {
+      predict: 'post',
+    },
+  };
+  const api = scaffold(API_URL, 'rest')(endpoints);
+  const staticApi = staticConnector(API_URL);
 
-      <AppRouter />
-    </BrowserRouter>
-  // </ThemeProvider>
-    // </ApiContext.Provider>
+  const ApiContext = createContext({ api, staticApi });
+
+  return (
+    <ApiContext.Provider value={{ api, staticApi }}>
+
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </ApiContext.Provider>
   );
 }
 

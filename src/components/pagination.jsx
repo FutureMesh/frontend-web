@@ -1,9 +1,9 @@
-import clsx from 'clsx'
+import clsx from 'clsx';
 
-import { Button } from './button'
+import { Button } from './button';
 
 export function Pagination({ 'aria-label': ariaLabel = 'Page navigation', className, ...props }) {
-  return <nav aria-label={ariaLabel} {...props} className={clsx(className, 'flex gap-x-2')} />
+  return <nav aria-label={ariaLabel} {...props} className={clsx(className, 'flex gap-x-2')} />;
 }
 
 export function PaginationPrevious({ href = null, className, children = 'Previous' }) {
@@ -21,7 +21,7 @@ export function PaginationPrevious({ href = null, className, children = 'Previou
         {children}
       </Button>
     </span>
-  )
+  );
 }
 
 export function PaginationNext({ href = null, className, children = 'Next' }) {
@@ -39,11 +39,11 @@ export function PaginationNext({ href = null, className, children = 'Next' }) {
         </svg>
       </Button>
     </span>
-  )
+  );
 }
 
 export function PaginationList({ className, ...props }) {
-  return <span {...props} className={clsx(className, 'hidden items-baseline gap-x-2 sm:flex')} />
+  return <span {...props} className={clsx(className, 'hidden items-baseline gap-x-2 sm:flex')} />;
 }
 
 export function PaginationPage({ href, className, current = false, children }) {
@@ -61,7 +61,7 @@ export function PaginationPage({ href, className, current = false, children }) {
     >
       <span className="-mx-0.5">{children}</span>
     </Button>
-  )
+  );
 }
 
 export function PaginationGap({ className, children = <>&hellip;</>, ...props }) {
@@ -76,5 +76,5 @@ export function PaginationGap({ className, children = <>&hellip;</>, ...props })
     >
       {children}
     </span>
-  )
+  );
 }

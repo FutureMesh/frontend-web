@@ -4,7 +4,6 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-
       colors: {
         //***** WHITE THEME *****//
         darkBg: '#171717',

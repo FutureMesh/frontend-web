@@ -1,17 +1,17 @@
-'use client'
+'use client';
 
-import * as Headless from '@headlessui/react'
-import clsx from 'clsx'
+import * as Headless from '@headlessui/react';
+import clsx from 'clsx';
 
-import { Button } from './button'
-import { Link } from './link'
+import { Button } from './button';
+import { Link } from './link';
 
 export function Dropdown(props) {
-  return <Headless.Menu {...props} />
+  return <Headless.Menu {...props} />;
 }
 
 export function DropdownButton({ as = Button, ...props }) {
-  return <Headless.MenuButton as={as} {...props} />
+  return <Headless.MenuButton as={as} {...props} />;
 }
 
 export function DropdownMenu({ anchor = 'bottom', className, ...props }) {
@@ -40,11 +40,11 @@ export function DropdownMenu({ anchor = 'bottom', className, ...props }) {
         'transition data-[closed]:data-[leave]:opacity-0 data-[leave]:duration-100 data-[leave]:ease-in'
       )}
     />
-  )
+  );
 }
 
 export function DropdownItem({ className, ...props }) {
-  let classes = clsx(
+  const classes = clsx(
     className,
     // Base styles
     'group cursor-default rounded-lg px-3.5 py-2.5 focus:outline-none sm:px-3 sm:py-1.5',
@@ -63,7 +63,7 @@ export function DropdownItem({ className, ...props }) {
     '[&>[data-slot=icon]]:text-zinc-500 [&>[data-slot=icon]]:data-[focus]:text-white [&>[data-slot=icon]]:dark:text-zinc-400 [&>[data-slot=icon]]:data-[focus]:dark:text-white',
     // Avatar
     '[&>[data-slot=avatar]]:-ml-1 [&>[data-slot=avatar]]:mr-2.5 [&>[data-slot=avatar]]:size-6 sm:[&>[data-slot=avatar]]:mr-2 sm:[&>[data-slot=avatar]]:size-5'
-  )
+  );
 
   return (
     <Headless.MenuItem>
@@ -73,11 +73,11 @@ export function DropdownItem({ className, ...props }) {
         <button type="button" {...props} className={classes} />
       )}
     </Headless.MenuItem>
-  )
+  );
 }
 
 export function DropdownHeader({ className, ...props }) {
-  return <div {...props} className={clsx(className, 'col-span-5 px-3.5 pb-1 pt-2.5 sm:px-3')} />
+  return <div {...props} className={clsx(className, 'col-span-5 px-3.5 pb-1 pt-2.5 sm:px-3')} />;
 }
 
 export function DropdownSection({ className, ...props }) {
@@ -90,7 +90,7 @@ export function DropdownSection({ className, ...props }) {
         'col-span-full supports-[grid-template-columns:subgrid]:grid supports-[grid-template-columns:subgrid]:grid-cols-[auto_1fr_1.5rem_0.5rem_auto]'
       )}
     />
-  )
+  );
 }
 
 export function DropdownHeading({ className, ...props }) {
@@ -102,7 +102,7 @@ export function DropdownHeading({ className, ...props }) {
         'col-span-full grid grid-cols-[1fr,auto] gap-x-12 px-3.5 pb-1 pt-2 text-sm/5 font-medium text-zinc-500 sm:px-3 sm:text-xs/5 dark:text-zinc-400'
       )}
     />
-  )
+  );
 }
 
 export function DropdownDivider({ className, ...props }) {
@@ -114,13 +114,13 @@ export function DropdownDivider({ className, ...props }) {
         'col-span-full mx-3.5 my-1 h-px border-0 bg-zinc-950/5 sm:mx-3 dark:bg-white/10 forced-colors:bg-[CanvasText]'
       )}
     />
-  )
+  );
 }
 
 export function DropdownLabel({ className, ...props }) {
   return (
     <Headless.Label {...props} data-slot="label" className={clsx(className, 'col-start-2 row-start-1')} {...props} />
-  )
+  );
 }
 
 export function DropdownDescription({ className, ...props }) {
@@ -133,7 +133,7 @@ export function DropdownDescription({ className, ...props }) {
         'col-span-2 col-start-2 row-start-2 text-sm/5 text-zinc-500 group-data-[focus]:text-white sm:text-xs/5 dark:text-zinc-400 forced-colors:group-data-[focus]:text-[HighlightText]'
       )}
     />
-  )
+  );
 }
 
 export function DropdownShortcut({ keys, className, ...props }) {
@@ -156,5 +156,5 @@ export function DropdownShortcut({ keys, className, ...props }) {
         </kbd>
       ))}
     </Headless.Description>
-  )
+  );
 }

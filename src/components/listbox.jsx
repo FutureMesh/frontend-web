@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import * as Headless from '@headlessui/react'
-import clsx from 'clsx'
-import { Fragment } from 'react'
+import * as Headless from '@headlessui/react';
+import clsx from 'clsx';
+import { Fragment } from 'react';
 
 export function Listbox({ className, placeholder, autoFocus, 'aria-label': ariaLabel, children: options, ...props }) {
   return (
@@ -85,11 +85,11 @@ export function Listbox({ className, placeholder, autoFocus, 'aria-label': ariaL
         {options}
       </Headless.ListboxOptions>
     </Headless.Listbox>
-  )
+  );
 }
 
 export function ListboxOption({ children, className, ...props }) {
-  let sharedClasses = clsx(
+  const sharedClasses = clsx(
     // Base
     'flex min-w-0 items-center',
     // Icons
@@ -98,13 +98,13 @@ export function ListboxOption({ children, className, ...props }) {
     'forced-colors:[&>[data-slot=icon]]:text-[CanvasText] forced-colors:[&>[data-slot=icon]]:group-data-[focus]/option:text-[Canvas]',
     // Avatars
     '[&>[data-slot=avatar]]:-mx-0.5 [&>[data-slot=avatar]]:size-6 sm:[&>[data-slot=avatar]]:size-5'
-  )
+  );
 
   return (
     <Headless.ListboxOption as={Fragment} {...props}>
       {({ selectedOption }) => {
         if (selectedOption) {
-          return <div className={clsx(className, sharedClasses)}>{children}</div>
+          return <div className={clsx(className, sharedClasses)}>{children}</div>;
         }
 
         return (
@@ -132,14 +132,14 @@ export function ListboxOption({ children, className, ...props }) {
             </svg>
             <span className={clsx(className, sharedClasses, 'col-start-2')}>{children}</span>
           </div>
-        )
+        );
       }}
     </Headless.ListboxOption>
-  )
+  );
 }
 
 export function ListboxLabel({ className, ...props }) {
-  return <span {...props} className={clsx(className, 'ml-2.5 truncate first:ml-0 sm:ml-2 sm:first:ml-0')} />
+  return <span {...props} className={clsx(className, 'ml-2.5 truncate first:ml-0 sm:ml-2 sm:first:ml-0')} />;
 }
 
 export function ListboxDescription({ className, children, ...props }) {
@@ -153,5 +153,5 @@ export function ListboxDescription({ className, children, ...props }) {
     >
       <span className="flex-1 truncate">{children}</span>
     </span>
-  )
+  );
 }

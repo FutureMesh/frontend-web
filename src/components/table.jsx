@@ -1,15 +1,15 @@
-'use client'
+'use client';
 
-import clsx from 'clsx'
-import { createContext, useContext, useState } from 'react'
-import { Link } from './link'
+import clsx from 'clsx';
+import { createContext, useContext, useState } from 'react';
+import { Link } from './link';
 
 const TableContext = createContext({
   bleed: false,
   dense: false,
   grid: false,
   striped: false,
-})
+});
 
 export function Table({ bleed = false, dense = false, grid = false, striped = false, className, children, ...props }) {
   return (
@@ -22,25 +22,25 @@ export function Table({ bleed = false, dense = false, grid = false, striped = fa
         </div>
       </div>
     </TableContext.Provider>
-  )
+  );
 }
 
 export function TableHead({ className, ...props }) {
-  return <thead {...props} className={clsx(className, 'text-zinc-500 dark:text-zinc-400')} />
+  return <thead {...props} className={clsx(className, 'text-zinc-500 dark:text-zinc-400')} />;
 }
 
 export function TableBody(props) {
-  return <tbody {...props} />
+  return <tbody {...props} />;
 }
 
 const TableRowContext = createContext({
   href: undefined,
   target: undefined,
   title: undefined,
-})
+});
 
 export function TableRow({ href, target, title, className, ...props }) {
-  let { striped } = useContext(TableContext)
+  const { striped } = useContext(TableContext);
 
   return (
     <TableRowContext.Provider value={{ href, target, title }}>
@@ -56,11 +56,11 @@ export function TableRow({ href, target, title, className, ...props }) {
         )}
       />
     </TableRowContext.Provider>
-  )
+  );
 }
 
 export function TableHeader({ className, ...props }) {
-  let { bleed, grid } = useContext(TableContext)
+  const { bleed, grid } = useContext(TableContext);
 
   return (
     <th
@@ -72,13 +72,13 @@ export function TableHeader({ className, ...props }) {
         !bleed && 'sm:first:pl-1 sm:last:pr-1'
       )}
     />
-  )
+  );
 }
 
 export function TableCell({ className, children, ...props }) {
-  let { bleed, dense, grid, striped } = useContext(TableContext)
-  let { href, target, title } = useContext(TableRowContext)
-  let [cellRef, setCellRef] = useState(null)
+  const { bleed, dense, grid, striped } = useContext(TableContext);
+  const { href, target, title } = useContext(TableRowContext);
+  const [cellRef, setCellRef] = useState(null);
 
   return (
     <td
@@ -105,5 +105,5 @@ export function TableCell({ className, children, ...props }) {
       )}
       {children}
     </td>
-  )
+  );
 }

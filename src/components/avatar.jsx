@@ -1,8 +1,8 @@
-import * as Headless from '@headlessui/react'
-import clsx from 'clsx'
-import React, { forwardRef } from 'react'
-import { TouchTarget } from './button'
-import { Link } from './link'
+import * as Headless from '@headlessui/react';
+import clsx from 'clsx';
+import React, { forwardRef } from 'react';
+import { TouchTarget } from './button';
+import { Link } from './link';
 
 export function Avatar({ src = null, square = false, initials, alt = '', className, ...props }) {
   return (
@@ -32,18 +32,18 @@ export function Avatar({ src = null, square = false, initials, alt = '', classNa
       )}
       {src && <img className="size-full" src={src} alt={alt} />}
     </span>
-  )
+  );
 }
 
-export const AvatarButton = forwardRef(function AvatarButton(
+export const AvatarButton = forwardRef((
   { src, square = false, initials, alt, className, ...props },
   ref
-) {
-  let classes = clsx(
+) => {
+  const classes = clsx(
     className,
     square ? 'rounded-[20%]' : 'rounded-full',
     'relative inline-grid focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500'
-  )
+  );
 
   return 'href' in props ? (
     <Link {...props} className={classes} ref={ref}>
@@ -57,5 +57,5 @@ export const AvatarButton = forwardRef(function AvatarButton(
         <Avatar src={src} square={square} initials={initials} alt={alt} />
       </TouchTarget>
     </Headless.Button>
-  )
-})
+  );
+});
